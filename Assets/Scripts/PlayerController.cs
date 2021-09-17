@@ -24,6 +24,6 @@ public class PlayerController : MonoBehaviour
 
     Vector3 HorizontalMovement(float moveSpeed)
     {
-        return (Input.GetAxis("Horizontal") * Vector3.right * speed * Time.deltaTime);
+        return (Input.GetAxis("Horizontal") * Vector3.right * moveSpeed * Time.deltaTime);
     }
 }
