@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody playerRb;
-    SphereCollider playerCol;
+    CapsuleCollider playerCol;
 
     float speed = 20f;
 
@@ -13,13 +13,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        playerCol = GetComponent<SphereCollider>();
+        playerCol = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += HorizontalMovement(speed);   
+        if (!GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver)
+        {
+            transform.position += HorizontalMovement(speed);
+        }     
     }
 
     Vector3 HorizontalMovement(float moveSpeed)

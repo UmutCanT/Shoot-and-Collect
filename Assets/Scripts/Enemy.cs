@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    GameManager gameManager;
     SphereCollider enemyCol;
     float enemySpeed;
     //Get this value from screen size manager
@@ -15,6 +16,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         enemyCol = GetComponent<SphereCollider>();
         //Did the enemy spawn which side of the screen?
         xEnemyPos = transform.position.x;
@@ -26,7 +28,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = HorizontalMovement(maxBound, xEnemyPos);
+        if (!gameManager.IsGameOver)
+        {
+            transform.position = HorizontalMovement(maxBound, xEnemyPos);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }      
     }
 
     Vector3 HorizontalMovement(float max, float decider)
@@ -43,7 +52,7 @@ public class Enemy : MonoBehaviour
 
     void Fireball()
     {
-        GameObject fireball = ObjectPooling.instance.GetPooledObjects(ObjectPooling.instance.fireballs, 20);
+        GameObject fireball = ObjectPooling.instance.GetPooledObjects(ObjectPooling.instance.fireballs, ObjectPooling.instance.AmountofObject(3));
         if (fireball != null)
         {
             fireball.transform.position = transform.position;

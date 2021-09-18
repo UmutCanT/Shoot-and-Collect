@@ -16,7 +16,8 @@ public class ObjectPooling : MonoBehaviour
 
     int enemyAmount = 5;
     int bulletAmount = 10;
-    int fbAmount = 20;
+    int fbAmount = 10;
+
 
     void Awake()
     {
@@ -58,5 +59,16 @@ public class ObjectPooling : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public int AmountofObject(int type)
+    {
+        return type switch
+        {
+            1 => enemyAmount,
+            2 => bulletAmount,
+            3 => fbAmount,
+            _ => default
+        };
     }
 }
