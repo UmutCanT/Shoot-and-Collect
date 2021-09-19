@@ -7,7 +7,7 @@ public class ObjectPooling : MonoBehaviour
     public static ObjectPooling instance;
     
     public List<GameObject> enemies = new List<GameObject>();
-    public List<GameObject> bullets;
+    public List<GameObject> bullets = new List<GameObject>();
     public List<GameObject> fireballs = new List<GameObject>();
     
     [SerializeField] GameObject bullet;
@@ -15,7 +15,7 @@ public class ObjectPooling : MonoBehaviour
     [SerializeField] GameObject fireball;
 
     int enemyAmount = 5;
-    int bulletAmount = 10;
+    int bulletAmount = 30;
     int fbAmount = 10;
 
 
@@ -28,7 +28,7 @@ public class ObjectPooling : MonoBehaviour
     void Start()
     {
         CreatingObjectsToPool(enemies, enemy, enemyAmount);
-        //CreatingObjectsToPool(bullets, bullet, bulletAmount);
+        CreatingObjectsToPool(bullets, bullet, bulletAmount);
         CreatingObjectsToPool(fireballs, fireball, fbAmount);
     }
 

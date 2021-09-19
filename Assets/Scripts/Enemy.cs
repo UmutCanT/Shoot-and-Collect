@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     GameManager gameManager;
-    SphereCollider enemyCol;
     float enemySpeed;
     //Get this value from screen size manager
     float maxBound = 9f;
@@ -17,7 +16,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        enemyCol = GetComponent<SphereCollider>();
         //Did the enemy spawn which side of the screen?
         xEnemyPos = transform.position.x;
         enemySpeed = Random.Range(3f, 15f);

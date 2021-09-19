@@ -168,6 +168,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHp: {fileID: 220509548}
   gem: {fileID: 783406513}
+--- !u!1 &159687826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159687827}
+  m_Layer: 3
+  m_Name: Aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &159687827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159687826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1743816631}
+  m_Father: {fileID: 1895471593}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220509546
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +380,7 @@ MonoBehaviour:
   enemies: []
   bullets: []
   fireballs: []
-  bullet: {fileID: 1743816627}
+  bullet: {fileID: 2930903140041011904, guid: e3ba86836f7e0e24ba06c1e50c31064e, type: 3}
   enemy: {fileID: 7925425277372813805, guid: 2f5c937e82ab2ec49bf2c3725b043ee7, type: 3}
   fireball: {fileID: 1636407210994739463, guid: 751e7c1a24f43694fb7737335bfdfcef, type: 3}
 --- !u!114 &426949384
@@ -655,7 +686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -834,7 +865,7 @@ RectTransform:
   - {fileID: 220509547}
   - {fileID: 783406512}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -852,28 +883,13 @@ GameObject:
   - component: {fileID: 1743816631}
   - component: {fileID: 1743816630}
   - component: {fileID: 1743816629}
-  - component: {fileID: 1743816628}
-  m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Layer: 3
+  m_Name: Pistol
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1743816628
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743816627}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1743816629
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -930,13 +946,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743816627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5380845, y: 3.44918, z: 7.415024}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710754, w: 0.70710605}
+  m_LocalPosition: {x: 1, y: -0.00000047683716, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 159687827}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1892225469
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +980,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892225469}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -1048,7 +1064,7 @@ GameObject:
   - component: {fileID: 1895471595}
   - component: {fileID: 1895471594}
   - component: {fileID: 1895471596}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1128,7 +1144,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 159687827}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1144,6 +1161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a320d8d54bc4345bd7ffdb54378e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pistol: {fileID: 1743816627}
 --- !u!54 &1895471595
 Rigidbody:
   m_ObjectHideFlags: 0
