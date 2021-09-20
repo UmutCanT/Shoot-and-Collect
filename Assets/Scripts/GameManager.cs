@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     bool isGameOver = false;
-    float spawnInterval = 2f;
-    float spawnDelay = 1f;
-    float xEnemyPos = 9;
+    readonly float spawnInterval = 2f;
+    readonly float spawnDelay = 1f;
+    float xEnemyPos; 
 
     public bool IsGameOver
     {
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        xEnemyPos = ScreenSizeManager.instance.Width;
         InvokeRepeating(nameof(SpawnEnemy), spawnDelay, spawnInterval);       
     }
 

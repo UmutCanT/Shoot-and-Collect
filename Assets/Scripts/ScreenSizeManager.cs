@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class ScreenSizeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static ScreenSizeManager instance;
+
+    float height;
+    float width;
+
+    //Properties for accessing to height from outside
+    public float Height
     {
-        
+        get
+        {
+            return height;
+        }
+    }
+    public float Width
+    {
+        get
+        {
+            return width;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        height = Camera.main.orthographicSize;
+        width = height * Camera.main.aspect;
     }
 }

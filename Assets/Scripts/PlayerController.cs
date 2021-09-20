@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     Transform aimTransform;
     [SerializeField] GameObject pistol;
 
-    float speed = 20f;
+    readonly float speed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!gameManager.IsGameOver)
         {
-            transform.position += HorizontalMovement(speed);           
+            transform.position += HorizontalMovement(speed);
+            CheckInBounds();
         }     
     }
 
@@ -71,5 +72,21 @@ public class PlayerController : MonoBehaviour
     Vector3 DirectionOfAim(Vector3 mousePos)
     {
         return (mousePos - transform.position).normalized;
+    }
+
+    void CheckInBounds()
+    {
+        if(transform.position.x >= ScreenSizeManager.instance.Width || transform.position.x <= -ScreenSizeManager.instance.Width)
+        {
+            Vector3 temp = transform.position;
+            if (temp.x > 0)
+            {
+                temp.x = ScreenSizeManager.instance.Width;
+            }else if(temp.x < 0)
+            {
+                temp.x = -ScreenSizeManager.instance.Width;
+            }            
+            transform.position = temp;
+        }
     }
 }

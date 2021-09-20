@@ -7,15 +7,16 @@ public class Enemy : MonoBehaviour
     GameManager gameManager;
     float enemySpeed;
     //Get this value from screen size manager
-    float maxBound = 9f;
+    float maxBound;
     float xEnemyPos;
-    float fireDelay = 2f;
+    readonly float fireDelay = 2f;
     float fireInterval;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        maxBound = ScreenSizeManager.instance.Width;
         //Did the enemy spawn which side of the screen?
         xEnemyPos = transform.position.x;
         enemySpeed = Random.Range(3f, 15f);

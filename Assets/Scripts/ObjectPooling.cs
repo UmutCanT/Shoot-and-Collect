@@ -15,11 +15,11 @@ public class ObjectPooling : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject fireball;
     [SerializeField] GameObject gem;
-
-    int enemyAmount = 5;
-    int bulletAmount = 30;
-    int fbAmount = 10;
-    int gemAmount = 10;
+    
+    readonly int enemyAmount = 5;
+    readonly int bulletAmount = 30;
+    readonly int fbAmount = 10;
+    readonly int gemAmount = 10;
 
 
     void Awake()

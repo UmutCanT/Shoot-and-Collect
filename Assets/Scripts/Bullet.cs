@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    float bulletSpeed = 30f;
+    readonly float bulletSpeed = 30f;
+    float xBulletRange; 
+    float ybulletRange; 
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        xBulletRange = ScreenSizeManager.instance.Width;
+        ybulletRange = ScreenSizeManager.instance.Height + 1f;
     }
 
     // Update is called once per frame
@@ -41,7 +43,7 @@ public class Bullet : MonoBehaviour
 
     void CheckInBounds()
     {
-        if(transform.position.x > 9f || transform.position.x < -9f || transform.position.y > 7f)
+        if (transform.position.x > xBulletRange || transform.position.x < -xBulletRange || transform.position.y > ybulletRange || transform.position.y < -ybulletRange)
         {
             gameObject.SetActive(false);
         }
