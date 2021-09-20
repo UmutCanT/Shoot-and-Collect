@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int playerHealth;
+    int gemCount;
 
     public int PlayerHp
     {
@@ -18,7 +19,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerHealth = 3;
+        gemCount = 0;
         UiManager.instance.TextManager(UiManager.instance.playerHp, playerHealth);
+        UiManager.instance.TextManager(UiManager.instance.gem, gemCount);
     }
 
     // Update is called once per frame
@@ -41,5 +44,11 @@ public class Player : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver = true;
             Destroy(gameObject, 1f);
         }
+    }
+
+    public void AddGem(int gem)
+    {
+        gemCount += gem;
+        UiManager.instance.TextManager(UiManager.instance.gem, gemCount);
     }
 }

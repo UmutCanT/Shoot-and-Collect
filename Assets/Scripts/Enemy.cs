@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     //Get this value from screen size manager
     float maxBound = 9f;
     float xEnemyPos;
-    float fireDelay = 1.5f;
+    float fireDelay = 2f;
     float fireInterval;
 
     // Start is called before the first frame update
@@ -31,9 +31,14 @@ public class Enemy : MonoBehaviour
             transform.position = HorizontalMovement(maxBound, xEnemyPos);
         }
         else
-        {
+        {           
             Destroy(gameObject);
-        }      
+        }
+
+        if (!gameObject.activeInHierarchy)
+        {
+            CancelInvoke(nameof(Fireball));
+        }
     }
 
     Vector3 HorizontalMovement(float max, float decider)

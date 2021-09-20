@@ -30,10 +30,10 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);
+            GemBonus();
         }
 
         gameObject.SetActive(false);
@@ -44,6 +44,17 @@ public class Bullet : MonoBehaviour
         if(transform.position.x > 9f || transform.position.x < -9f || transform.position.y > 7f)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    void GemBonus()
+    {
+        GameObject gem = ObjectPooling.instance.GetPooledObjects(ObjectPooling.instance.gems, ObjectPooling.instance.AmountofObject(4));
+        if (gem != null)
+        {
+            gem.transform.position = transform.position;
+            gem.transform.rotation = Quaternion.identity;
+            gem.SetActive(true);
         }
     }
 }

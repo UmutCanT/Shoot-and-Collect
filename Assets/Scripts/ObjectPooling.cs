@@ -9,14 +9,17 @@ public class ObjectPooling : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> bullets = new List<GameObject>();
     public List<GameObject> fireballs = new List<GameObject>();
+    public List<GameObject> gems = new List<GameObject>();
     
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject fireball;
+    [SerializeField] GameObject gem;
 
     int enemyAmount = 5;
     int bulletAmount = 30;
     int fbAmount = 10;
+    int gemAmount = 10;
 
 
     void Awake()
@@ -30,6 +33,7 @@ public class ObjectPooling : MonoBehaviour
         CreatingObjectsToPool(enemies, enemy, enemyAmount);
         CreatingObjectsToPool(bullets, bullet, bulletAmount);
         CreatingObjectsToPool(fireballs, fireball, fbAmount);
+        CreatingObjectsToPool(gems, gem, gemAmount);
     }
 
     // Update is called once per frame
@@ -68,6 +72,7 @@ public class ObjectPooling : MonoBehaviour
             1 => enemyAmount,
             2 => bulletAmount,
             3 => fbAmount,
+            4 => gemAmount,
             _ => default
         };
     }

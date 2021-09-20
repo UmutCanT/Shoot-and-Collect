@@ -380,9 +380,11 @@ MonoBehaviour:
   enemies: []
   bullets: []
   fireballs: []
+  gems: []
   bullet: {fileID: 2930903140041011904, guid: e3ba86836f7e0e24ba06c1e50c31064e, type: 3}
   enemy: {fileID: 7925425277372813805, guid: 2f5c937e82ab2ec49bf2c3725b043ee7, type: 3}
   fireball: {fileID: 1636407210994739463, guid: 751e7c1a24f43694fb7737335bfdfcef, type: 3}
+  gem: {fileID: 3689584771442904557, guid: 69731d436657d24479b41c019323f1db, type: 3}
 --- !u!114 &426949384
 MonoBehaviour:
   m_ObjectHideFlags: 0
