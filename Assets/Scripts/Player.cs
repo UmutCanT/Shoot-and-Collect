@@ -24,12 +24,6 @@ public class Player : MonoBehaviour
         UiManager.instance.TextManager(UiManager.instance.gem, gemCount);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Damage(int dmgAmount)
     {
         playerHealth -= dmgAmount;
@@ -42,7 +36,8 @@ public class Player : MonoBehaviour
         if(playerHealth <= 0)
         {
             GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver = true;
-            Destroy(gameObject, 1f);
+            StartCoroutine(UiManager.instance.GameOverUI(gemCount));
+            Destroy(gameObject, 1.5f);
         }
     }
 

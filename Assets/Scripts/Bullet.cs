@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver)
         {

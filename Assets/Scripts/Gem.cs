@@ -13,7 +13,7 @@ public class Gem : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameObject.activeInHierarchy)
         {

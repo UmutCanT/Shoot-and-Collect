@@ -36,12 +36,6 @@ public class ObjectPooling : MonoBehaviour
         CreatingObjectsToPool(gems, gem, gemAmount);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void CreatingObjectsToPool(List<GameObject> listToHold ,GameObject obj, int amount)
     {
         GameObject tmp;

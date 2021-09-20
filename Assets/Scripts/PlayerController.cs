@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody playerRb;
-    CapsuleCollider playerCol;
+    GameManager gameManager;
     Transform aimTransform;
     [SerializeField] GameObject pistol;
 
@@ -14,22 +13,27 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody>();
-        playerCol = GetComponent<CapsuleCollider>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         aimTransform = transform.Find("Aim");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver)
+        if (!gameManager.IsGameOver)
         {
-            transform.position += HorizontalMovement(speed);
-
             Vector3 mousePos = GetMouseWorldPos(Input.mousePosition, Camera.main);
             aimTransform.eulerAngles = new Vector3(0, 0, AngleOfAim(mousePos));
 
             Shooting();
+        }       
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (!gameManager.IsGameOver)
+        {
+            transform.position += HorizontalMovement(speed);           
         }     
     }
 

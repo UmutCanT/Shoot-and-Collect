@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!gameManager.IsGameOver)
         {
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
         else
         {           
             Destroy(gameObject);
+            CancelInvoke(nameof(Fireball));
         }
 
         if (!gameObject.activeInHierarchy)
