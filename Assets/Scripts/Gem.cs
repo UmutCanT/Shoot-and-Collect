@@ -22,7 +22,7 @@ public class Gem : MonoBehaviour
 
         if (GameObject.Find("GameManager").GetComponent<GameManager>().IsGameOver)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

@@ -70,4 +70,12 @@ public class ObjectPooling : MonoBehaviour
             _ => default
         };
     }
+
+    public void DestroyObjects(List<GameObject> list)
+    {
+        foreach (GameObject item in list)
+        {
+            Destroy(item);
+        } 
+    }
 }

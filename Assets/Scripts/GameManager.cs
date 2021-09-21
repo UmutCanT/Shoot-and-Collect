@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         if (isGameOver)
         {
             CancelInvoke(nameof(SpawnEnemy));
+            ObjectPooling.instance.DestroyObjects(ObjectPooling.instance.enemies);
         }
     }
 
